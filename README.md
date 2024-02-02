@@ -8,5 +8,5 @@ docker run -d \
   -e FL_USERNAME="USER" \
   -e FL_PASSWORD="PASS" \
   -e FL_CHECK_DELAY=900 \
-  ghcr.io/rursache/filelist-api-whitelist:master
+  ghcr.io/rursache/filelist-api-whitelist:latest
 ```
