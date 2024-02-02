@@ -62,8 +62,6 @@ def authenticate(user, password):
 def get_current_wan_ip():
     urls = [
         'https://checkip.amazonaws.com/',
-        'https://ipinfo.io/ip/',
-        'https://api.ipify.org',
         'https://ifconfig.io/ip',
         'https://icanhazip.com/'
     ]
@@ -179,19 +177,10 @@ def fetch_and_update_profile(session, current_wan_ip):
         logging.info(f"Retrying in 5 minutes...")
         sleep(300)
 
-def load_secret(path):
-    try:
-        with open(path, 'r') as secret_file:
-            return secret_file.read().strip()
-    except FileNotFoundError as e:
-        logging.error(e)
-
 if __name__ == '__main__':
-    username_path = os.environ.get('FL_USERNAME', None)
-    password_path = os.environ.get('FL_PASSWORD', None)
-
-    username = load_secret(username_path)
-    password = load_secret(password_path)
+    username = os.environ.get('FL_USERNAME', None)
+    password = os.environ.get('FL_PASSWORD', None)
+    check_delay = os.environ.get('FL_CHECK_DELAY', None)
 
     if username is None:
         logging.error("Error: FL_USERNAME is not set.")
@@ -199,6 +188,10 @@ if __name__ == '__main__':
 
     if password is None:
         logging.error("Error: FL_PASSWORD is not set.")
+        sys.exit(1)
+
+    if check_delay is None:
+        logging.error("Error: FL_CHECK_DELAY is not set.")
         sys.exit(1)
 
     session = authenticate(username, password)
@@ -227,5 +220,5 @@ if __name__ == '__main__':
         else:
             logging.info("No change in WAN IP.")
 
-        # Wait for 2 minutes before checking again
-        sleep(120)
+        # Wait for 15 minutes before checking again
+        sleep(check_delay)
