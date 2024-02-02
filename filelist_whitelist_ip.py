@@ -221,4 +221,4 @@ if __name__ == '__main__':
             logging.info("No change in WAN IP.")
 
         # Wait for 15 minutes before checking again
-        sleep(check_delay)
+        sleep(int(check_delay))
