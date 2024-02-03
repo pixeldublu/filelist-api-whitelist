@@ -11,7 +11,7 @@ pip install -r requirements. txt
 python filelist_whitelist_ip.py -FL_USERNAME "USER" -FL_PASSWORD "PASS" -FL_CHECK_DELAY 900
 ```
 
-### Docker Run
+### Docker CLI
 ```sh
 docker run -d \
   --name filelist-api-whitelist \
@@ -27,22 +27,22 @@ docker run -d \
 ```yaml
 version: '3.2'
 services:
-    filelist-api-whitelist:
-      image: ghcr.io/rursache/filelist-api-whitelist:latest
-      container_name: filelist-api-whitelist
-      environment:
-        TZ: Europe/Bucharest
-        FL_USERNAME: "USER"
-        FL_PASSWORD: "PASS"
-        FL_CHECK_DELAY: 900
-      restart: unless-stopped
+  filelist-api-whitelist:
+    image: ghcr.io/rursache/filelist-api-whitelist:latest
+    container_name: filelist-api-whitelist
+    environment:
+      TZ: Europe/Bucharest
+      FL_USERNAME: "USER"
+      FL_PASSWORD: "PASS"
+      FL_CHECK_DELAY: 900
+    restart: unless-stopped
 ```
 
 > [!NOTE]
 > `FL_CHECK_DELAY` is the delay between checks in seconds
 
 ## Acknowledgements
-Based on [DevilRange](https://github.com/DevilRange/filelist-api-whitelist)'s work
+Based upon [DevilRange](https://github.com/DevilRange/filelist-api-whitelist) and [ihatethecloud](https://github.com/ihatethecloud/filelist-api-whitelist)'s python implementations
 
 ## LICENSE
 This repo is available under the MPL-2.0 license. See the [LICENSE](LICENSE) file for more info.
