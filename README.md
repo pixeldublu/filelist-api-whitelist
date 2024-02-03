@@ -1,5 +1,7 @@
 # Filelist API Whitelist
-A simple script that will keep your public IP updated in your Filelist profile so you can keep accessing the API via Prowlarr
+A simple script that will keep your public IP updated in your Filelist profile so you can keep accessing the API via Prowlarr.
+
+The docker image supports `amd64`, `arm64` and `arm/v6/v7` CPUs
 
 ### Python:
 ```sh
