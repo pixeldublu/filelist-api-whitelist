@@ -1,6 +1,12 @@
 # Filelist API Whitelist
+A simple script that will keep your public IP updated in your Filelist profile so you can keep accessing the API via Prowlarr
 
-Based on [DevilRange](https://github.com/DevilRange/filelist-api-whitelist)'s work
+### Python:
+```sh
+git clone https://github.com/rursache/filelist-api-whitelist
+pip install -r requirements. txt
+python filelist_whitelist_ip.py -FL_USERNAME "USER" -FL_PASSWORD "PASS" -FL_CHECK_DELAY 900
+```
 
 ### Docker Run:
 ```sh
@@ -31,6 +37,9 @@ services:
 
 > [!NOTE]
 > `FL_CHECK_DELAY` is the delay between checks in seconds
+
+### Acknowledgement
+Based on [DevilRange](https://github.com/DevilRange/filelist-api-whitelist)'s work
 
 ### LICENSE
 [GNU General Public License v3.0](LICENSE)
