@@ -7,7 +7,7 @@ The docker image supports `amd64`, `arm64` and `arm/v6/v7` archs
 ### Python
 ```sh
 git clone https://github.com/rursache/filelist-api-whitelist
-pip install -r requirements. txt
+pip install -r requirements.txt
 python filelist_whitelist_ip.py -FL_USERNAME "USER" -FL_PASSWORD "PASS" -FL_CHECK_DELAY 900
 ```
 
@@ -45,4 +45,4 @@ services:
 Based upon [DevilRange](https://github.com/DevilRange/filelist-api-whitelist) and [ihatethecloud](https://github.com/ihatethecloud/filelist-api-whitelist)'s python implementations
 
 ## LICENSE
-This repo is available under the MPL-2.0 license. See the [LICENSE](LICENSE) file for more info.
+This repo is available under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for more info.
